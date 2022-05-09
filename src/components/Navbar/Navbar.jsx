@@ -6,7 +6,7 @@ import SearchBox from "../SearchBox";
 
 function Navbar() {
   return (
-    <div>
+    <div className={styles.navbar}>
       <SearchBox />
       <FilterList />
     </div>

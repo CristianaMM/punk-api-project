@@ -5,7 +5,7 @@ import CardList from "../../components/CardList";
 
 function Main() {
   return (
-    <div>
+    <div className={styles.list}>
       <CardList />
     </div>
   );
