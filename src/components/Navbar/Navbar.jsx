@@ -7,6 +7,7 @@ import SearchBox from "../SearchBox";
 function Navbar() {
   return (
     <div className={styles.navbar}>
+      <h1>Punk API</h1>
       <SearchBox />
       <FilterList />
     </div>

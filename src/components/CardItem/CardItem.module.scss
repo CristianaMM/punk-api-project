@@ -1,0 +1,51 @@
+.container {
+  width: calc(100% / 4);
+  padding: 10px;
+
+  .inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    cursor: pointer;
+
+    &:hover {
+      border: 2px solid rgb(29, 150, 192);
+    }
+  }
+
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-weight: 700;
+  }
+
+  img {
+    height: 200px;
+    align-self: center;
+  }
+
+  p {
+    text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    flex: 1;
+
+    p {
+      display: -webkit-box;
+      -webkit-line-clamp: 4; /* number of lines to show */
+      line-clamp: 4;
+      -webkit-box-orient: vertical;
+      font-weight: 300;
+    }
+  }
+}

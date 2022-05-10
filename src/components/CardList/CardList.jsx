@@ -1,12 +1,13 @@
 import React from "react";
 import styles from "./CardList.module.scss";
-
 import CardItem from "../CardItem";
 
-function CardList() {
+function CardList({ beers, setSelectedBeer }) {
   return (
-    <div>
-      <CardItem />
+    <div className={styles.container}>
+      {beers.map((beer) => (
+        <CardItem beer={beer} setSelectedBeer={setSelectedBeer}></CardItem>
+      ))}
     </div>
   );
 }
