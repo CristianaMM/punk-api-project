@@ -14,6 +14,10 @@ function BeerModal({ beer, onClose }) {
           <p className={styles.description}>{beer.description}</p>
           <div className={styles.hr}></div>
           <p className={styles.details}>
+            <b>First Brewed: </b>
+            {beer.first_brewed}
+          </p>
+          <p className={styles.details}>
             <b>ABV: </b>
             {beer.abv}
           </p>

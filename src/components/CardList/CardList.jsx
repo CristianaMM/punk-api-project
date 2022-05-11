@@ -6,7 +6,11 @@ function CardList({ beers, setSelectedBeer }) {
   return (
     <div className={styles.container}>
       {beers.map((beer) => (
-        <CardItem beer={beer} setSelectedBeer={setSelectedBeer}></CardItem>
+        <CardItem
+          key={beer.id}
+          beer={beer}
+          setSelectedBeer={setSelectedBeer}
+        ></CardItem>
       ))}
     </div>
   );
