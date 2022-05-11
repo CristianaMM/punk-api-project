@@ -18,10 +18,7 @@ function Main() {
         setSelectedBeer={(beer) => setSelectedBeer(beer)}
       />
       {selectedBeer && (
-        <BeerModal
-          beer={selectedBeer}
-          setSelectedBeer={(beer) => setSelectedBeer(beer)}
-        />
+        <BeerModal beer={selectedBeer} onClose={() => setSelectedBeer(null)} />
       )}
     </div>
   );
