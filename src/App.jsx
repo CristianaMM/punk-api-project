@@ -12,16 +12,27 @@ function App() {
   const [isClassic, setIsClassic] = useState(false);
   const [searchText, setSearchText] = useState("");
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(1);
 
-  useEffect(() => {
+  const request = () => {
     setLoading(true);
-    getBeers(searchText, isClassic, isHighAlcohol).then((res) => {
+
+    getBeers(searchText, isClassic, isHighAlcohol, page).then((res) => {
       setTimeout(() => {
         setBeers(res);
         setLoading(false);
       }, 250);
     });
+  };
+
+  useEffect(() => {
+    setPage(1);
+    request();
   }, [isClassic, isHighAlcohol, searchText]);
+
+  useEffect(() => {
+    request();
+  }, [page]);
 
   return (
     <div className={styles.app}>
@@ -30,7 +41,7 @@ function App() {
         setIsClassic={setIsClassic}
         setIsHighAlcohol={setIsHighAlcohol}
       />
-      <Main beers={beers} loading={loading} />
+      <Main beers={beers} loading={loading} setPage={setPage} page={page} />
     </div>
   );
 }

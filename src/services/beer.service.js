@@ -1,6 +1,6 @@
 const API_URL = "https://api.punkapi.com/v2/beers";
 
-const getBeers = (searchTerm, isClassic, isHighAlcohol) => {
+const getBeers = (searchTerm, isClassic, isHighAlcohol, page) => {
   const params = [];
 
   if (searchTerm.length > 0) {
@@ -8,12 +8,14 @@ const getBeers = (searchTerm, isClassic, isHighAlcohol) => {
   }
 
   if (isClassic) {
-    params.push(`brewed_before=01-2010`);
+    params.push("brewed_before=01-2010");
   }
 
   if (isHighAlcohol) {
-    params.push(`abv_gt=6`);
+    params.push("abv_gt=6");
   }
+
+  params.push(`page=${page}`);
 
   const URL = `${API_URL}?${params.join("&")}`;
 
