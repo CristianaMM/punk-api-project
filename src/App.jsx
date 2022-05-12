@@ -11,9 +11,16 @@ function App() {
   const [isHighAlcohol, setIsHighAlcohol] = useState(false);
   const [isClassic, setIsClassic] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getBeers(searchText, isClassic, isHighAlcohol).then((res) => setBeers(res));
+    setLoading(true);
+    getBeers(searchText, isClassic, isHighAlcohol).then((res) => {
+      setTimeout(() => {
+        setBeers(res);
+        setLoading(false);
+      }, 250);
+    });
   }, [isClassic, isHighAlcohol, searchText]);
 
   return (
@@ -23,7 +30,7 @@ function App() {
         setIsClassic={setIsClassic}
         setIsHighAlcohol={setIsHighAlcohol}
       />
-      <Main beers={beers} />
+      <Main beers={beers} loading={loading} />
     </div>
   );
 }

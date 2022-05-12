@@ -4,7 +4,7 @@ import styles from "./Main.module.scss";
 import CardList from "../../components/CardList";
 import BeerModal from "../../components/BeerModal/BeerModal";
 
-function Main({ beers }) {
+function Main({ beers, loading }) {
   const [selectedBeer, setSelectedBeer] = useState(null);
 
   const contentJsx = beers.length ? (
@@ -17,7 +17,13 @@ function Main({ beers }) {
 
   return (
     <div className={styles.list}>
-      {contentJsx}
+      {loading && (
+        <div class={styles.ring}>
+          Loading
+          <span></span>
+        </div>
+      )}
+      {!loading && contentJsx}
       {selectedBeer && (
         <BeerModal beer={selectedBeer} onClose={() => setSelectedBeer(null)} />
       )}
