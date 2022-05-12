@@ -3,7 +3,21 @@
 .list {
   flex: 1;
   padding: 20px;
-  margin-left: 250px;
+  margin-left: 0px;
+
+  @media screen and (min-width: $medium) {
+    margin-left: 250px;
+    margin-top: 0px;
+  }
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 25px;
+  color: $primary-color;
+  font-size: 45px;
+  font-family: $font-title;
 }
 
 .pagination {

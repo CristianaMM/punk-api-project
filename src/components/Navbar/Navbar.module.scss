@@ -1,7 +1,7 @@
 @import "../../variables.scss";
 
 .navbar {
-  width: 250px;
+  width: 100vw;
   height: 100vh;
   padding: 30px 20px;
   background-color: $primary-color;
@@ -11,14 +11,110 @@
   box-shadow: -3px 0 10px 0 #000;
   position: fixed;
   top: 0;
-  left: 0;
+
+  @media screen and (min-width: $medium) {
+    width: 250px;
+  }
 
   h1 {
     width: 100%;
-    text-align: left;
+    text-align: center;
     margin-bottom: 25px;
     color: $secondary-color;
     font-size: 45px;
     font-family: $font-title;
+
+    @media screen and (min-width: $medium) {
+      text-align: left;
+    }
   }
+}
+
+.toggler {
+  position: fixed;
+  top: 30px;
+  left: 10px;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  opacity: 0;
+  display: block;
+
+  @media screen and (min-width: $medium) {
+    display: none;
+  }
+}
+
+.hamburguer {
+  position: fixed;
+  top: 45px;
+  left: 10px;
+  z-index: 1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: block;
+
+  > div {
+    position: relative;
+    width: 100%;
+    height: 6px;
+    border-radius: 5px;
+    background-color: $primary-color;
+    border: 1px solid $secondary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    box-sizing: content-box;
+
+    /* top and bottom lines */
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      top: -12px;
+      left: -1px;
+      width: 100%;
+      height: 6px;
+      border: 1px solid $secondary-color;
+      border-radius: 5px;
+      background: inherit;
+      box-sizing: content-box;
+    }
+    /* moves line down */
+    &::after {
+      top: 10px;
+    }
+  }
+
+  @media screen and (min-width: $medium) {
+    display: none;
+  }
+}
+
+/* mobile menu animate */
+.toggler:checked {
+  & + .hamburguer > div {
+    transform: rotate(135deg);
+    background-color: $secondary-color;
+    border: 1px solid $primary-color;
+    /* turn lines into X */
+    &:before,
+    &:after {
+      top: -1px;
+      left: -1px;
+      transform: rotate(90deg);
+      border: 1px solid $primary-color;
+    }
+  }
+}
+
+/*show menu*/
+.toggler:checked ~ .navbar {
+  transform: translate(0, 0);
+  transition-duration: 0.75s;
 }

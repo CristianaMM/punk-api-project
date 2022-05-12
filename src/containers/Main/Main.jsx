@@ -3,12 +3,15 @@ import styles from "./Main.module.scss";
 
 import CardList from "../../components/CardList";
 import BeerModal from "../../components/BeerModal/BeerModal";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 function Main({ beers, loading, setPage, page }) {
   const [selectedBeer, setSelectedBeer] = useState(null);
+  const size = useWindowSize();
 
   const contentJsx = beers.length ? (
     <>
+      {size.width < 768 && <h1 className={styles.title}>Punk API</h1>}
       <CardList
         beers={beers}
         setSelectedBeer={(beer) => setSelectedBeer(beer)}
