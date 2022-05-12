@@ -1,8 +1,10 @@
+@import "../../variables.scss";
+
 .navbar {
   width: 250px;
   height: 100vh;
   padding: 30px 20px;
-  background-color: rgb(29, 150, 192);
+  background-color: $primary-color;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,8 +17,8 @@
     width: 100%;
     text-align: left;
     margin-bottom: 25px;
-    color: white;
+    color: $secondary-color;
     font-size: 45px;
-    font-family: "Oleo Script Swash Caps", cursive;
+    font-family: $font-title;
   }
 }

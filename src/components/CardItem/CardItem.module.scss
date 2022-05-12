@@ -1,3 +1,5 @@
+@import "../../variables.scss";
+
 .container {
   width: calc(100% / 4);
   padding: 10px;
@@ -9,20 +11,20 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 100%;
     padding: 20px;
-    border-radius: 10px;
-    border: 2px solid transparent;
+    border-radius: $border-rounding;
+    border: $card-border;
     cursor: pointer;
 
     &:hover {
-      border: 2px solid rgb(29, 150, 192);
+      border: $card-border-hover;
     }
   }
 
   h2 {
     margin-top: 20px;
     margin-bottom: 15px;
-    font-weight: 700;
-    font-family: "Oleo Script Swash Caps", cursive;
+    font-weight: $font-bold;
+    font-family: $font-title;
   }
 
   img {
@@ -46,7 +48,7 @@
       -webkit-line-clamp: 4; /* number of lines to show */
       line-clamp: 4;
       -webkit-box-orient: vertical;
-      font-weight: 300;
+      font-weight: $font-light;
     }
   }
 }
