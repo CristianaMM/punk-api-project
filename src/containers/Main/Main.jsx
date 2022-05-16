@@ -12,10 +12,7 @@ function Main({ beers, loading, setPage, page }) {
   const contentJsx = beers.length ? (
     <>
       {size.width < 768 && <h1 className={styles.title}>Punk API</h1>}
-      <CardList
-        beers={beers}
-        setSelectedBeer={(beer) => setSelectedBeer(beer)}
-      />
+      <CardList beers={beers} setSelectedBeer={setSelectedBeer} />
       <div className={styles.pagination}>
         <button onClick={() => setPage(page > 1 ? page - 1 : 1)}>
           Previous

@@ -7,7 +7,6 @@ describe("Navbar tests", () => {
 
   beforeEach(() => {
     component = shallow(<Navbar />);
-    console.log(component);
   });
 
   it("should render", () => {

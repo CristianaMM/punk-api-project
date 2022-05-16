@@ -10,7 +10,6 @@ function FilterList(props) {
     <div className={styles.container}>
       <FilterItem label="High ABV (>6.0%)" onChange={setIsHighAlcohol} />
       <FilterItem label="Classic Range" onChange={setIsClassic} />
-      <FilterItem label="Acidic (ph < 4)" />
     </div>
   );
 }
